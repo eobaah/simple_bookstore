@@ -6,11 +6,11 @@
   "scripts": {
     "test": "mocha js:babel-core/register ./test/database-test.js",
     "start": "nodemon server.js",
-    "dbinit": "dropdb new_bookstore; createdb new_bookstore; psql new_bookstore < ./src/models/schema/schema.sql; psql new_bookstore < ./src/models/books.csv",
+    "dbinit": "dropdb new_bookstore; createdb new_bookstore; psql new_bookstore < ./src/models/schema/schema.sql; psql new_bookstore < ./src/models/schema/load-data.sql",
     "dropdb": "dropdb new_bookstore",
     "createdb": "createdb new_bookstore",
     "schemaUpdate": "psql new_bookstore < ./src/models/schema/schema.sql",
-    "seedData": "psql new_bookstore < ./src/models/books.csv"
+    "seedData": "psql new_bookstore < ./src/models/schema/load-data.sql"
   },
   "repository": {
     "type": "git",
@@ -23,9 +23,12 @@
   },
   "homepage": "https://github.com/eobaah/simple_bookstore#readme",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.18.0",
+    "cookie-parser": "^1.4.3",
     "dotenv": "^4.0.0",
     "express": "^4.15.4",
+    "express-session": "^1.15.5",
     "morgan": "^1.8.2",
     "pg-promise": "^6.5.2",
     "postgresql": "0.0.1",
