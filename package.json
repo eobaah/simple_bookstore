@@ -1,0 +1,40 @@
+{
+  "name": "simple_bookstore",
+  "version": "1.0.0",
+  "description": "## Skills",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha js:babel-core/register ./test/database-test.js",
+    "start": "nodemon server.js",
+    "dbinit": "dropdb new_bookstore; createdb new_bookstore; psql new_bookstore < ./src/models/schema/schema.sql; psql new_bookstore < ./src/models/books.csv",
+    "dropdb": "dropdb new_bookstore",
+    "createdb": "createdb new_bookstore",
+    "schemaUpdate": "psql new_bookstore < ./src/models/schema/schema.sql",
+    "seedData": "psql new_bookstore < ./src/models/books.csv"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eobaah/simple_bookstore.git"
+  },
+  "author": "Jacky and Eugene",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eobaah/simple_bookstore/issues"
+  },
+  "homepage": "https://github.com/eobaah/simple_bookstore#readme",
+  "dependencies": {
+    "body-parser": "^1.18.0",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.4",
+    "morgan": "^1.8.2",
+    "pg-promise": "^6.5.2",
+    "postgresql": "0.0.1",
+    "pug": "^2.0.0-rc.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "chai": "^4.1.2",
+    "nodemon": "^1.12.0"
+  }
+}
