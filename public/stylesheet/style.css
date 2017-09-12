@@ -1,3 +1,69 @@
+.splashContainer {
+  align-items: center;
+  background: url("../images/splash.jpg") no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+}
+
+.splashContainer h1 {
+  color: rgb(239, 239, 242);
+  text-align: center;
+}
+
+.signUpOrLogin {
+  align-items: center;
+  background-color: rgba(224, 221, 235, .7);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2%;
+  width: 10%;
+}
+
+.signUpOrLogin a {
+  margin: 3% 0;
+}
+
+
+.signupContainer {
+  align-items: center;
+  background: url("../images/signup.jpg") no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+}
+
+.signupFormBackground{
+  background-color: rgba(224, 221, 235, .7);
+  border-radius: 5px;
+  padding: 2%;
+  width: 95%;
+}
+
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  width: 102%;
+}
+
+.signupLabel{
+  font-size: 1em;
+  width: auto;
+}
+.signupInput {
+  height: 1em;
+}
+
 .loginContainer {
   align-items: center;
   background: url("../images/signup.jpg") no-repeat;
@@ -20,13 +86,18 @@
   padding: 2%;
   width: 60%;
 }
-.signUpForm {
-  display: flex;
-  flex-direction: column;
-}
 
-.usernameSection, .passwordSection {
+.usernameSection,
+.passwordSection,
+.firstNameSection,
+.lastNameSection,
+.emailSection,
+.passwordConfirmSection {
+  align-items: flex-start;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1% 0;
 }
 
 .usernameSection i, .passwordSection i {

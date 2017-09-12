@@ -3,7 +3,7 @@ CREATE DATABASE new_bookstore;
 
 \c new_bookstore
 
-DROP TABLE IF EXISTS member;
+DROP TABLE IF EXISTS book;
 CREATE TABLE IF NOT EXISTS book(
   id SERIAL PRIMARY KEY,
   title VARCHAR(255),
@@ -19,7 +19,8 @@ CREATE TABLE IF NOT EXISTS member(
   id SERIAL PRIMARY KEY,
   first_name VARCHAR(255),
   last_name  VARCHAR(255),
-  email VARCHAR(225),
+  email VARCHAR(225) UNIQUE,
+  username VARCHAR(225) UNIQUE,
   password VARCHAR(50));
 
 DROP TABLE IF EXISTS review;

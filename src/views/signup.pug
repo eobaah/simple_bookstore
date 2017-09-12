@@ -1,3 +1,26 @@
 extends layout
 
 block content 
+  .signupContainer
+    h1 Jacky's and Gene's Simple Bookstore
+    .signupFormBackground
+      form.signUpForm( action="/signup" method="POST")
+        .firstNameSection
+          label.signupLabel First Name:
+          input.signupInput(type="text" name="first-name" placeholder="First Name") 
+        .lastNameSection
+          label.signupLabel Last Name:
+          input.signupInput(type="text" name="last-name" placeholder="Last Name") 
+        .emailSection
+          label.signupLabel Email:
+          input.signupInput(type="text" name="email" placeholder="Email") 
+        .usernameSection
+          label.signupLabel Username:
+          input.signupInput(type="text" name="username" placeholder="Username") 
+        .passwordSection
+          label.signupLabel Password:
+          input.signupInput(type="password" name="password") 
+        .passwordConfirmSection
+          label.signupLabel Confirm Password:
+          input.signupInput(type="password" name="confirm-password") 
+        input.login-btn(type='submit', value='Submit')

@@ -4,6 +4,7 @@ const express = require( 'express' );
 const app = express();
 const session = require( 'express-session' );
 const bodyParser = require( 'body-parser' );
+const morgan = require( 'morgan' );
 
 const databaseBooks = require( './src/models/books.js' );
 const databaseAuth = require( './src/models/authentication.js' );
