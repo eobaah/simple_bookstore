@@ -1,0 +1,52 @@
+.loginContainer {
+  align-items: center;
+  background: url("../images/signup.jpg") no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+}
+ .loginContainer h1 {
+   color: black;
+   text-align: center;
+ }
+
+.formBackground {
+  background-color: rgba(224, 221, 235, .7);
+  border-radius: 5px;
+  padding: 2%;
+  width: 60%;
+}
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.usernameSection, .passwordSection {
+  display: flex;
+}
+
+.usernameSection i, .passwordSection i {
+  margin: 0% 3% 0 0;
+}
+.login-btn {
+  align-self: flex-end;
+  margin: 2% 0% 0 0;
+}
+
+
+
+/* For tablet: */
+@media only screen and (min-width: 768px) {
+  .formBackground {
+    width: 25%;
+  }
+}
+
+/* For desktop: */
+@media only screen and (min-width: 1024px) {
+
+}
