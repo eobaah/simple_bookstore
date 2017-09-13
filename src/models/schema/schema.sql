@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS member(
   last_name  VARCHAR(255),
   email VARCHAR(225) UNIQUE,
   username VARCHAR(225) UNIQUE,
-  password VARCHAR(50));
+  password VARCHAR(255));
 
 DROP TABLE IF EXISTS review;
 CREATE TABLE IF NOT EXISTS review(

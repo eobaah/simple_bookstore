@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt')
-const saltRounds = process.env.SALT
+const saltRounds = 10
 
-const hashPassword = (password) => {
+const hashPassword = (password, saltRounds) => {
   return bcrypt.hash(password, saltRounds)
 }
 
@@ -11,5 +11,6 @@ const comparePassword = (password, hashedPassword) => {
 
 module.exports = {
   hashPassword,
-  comparePassword
+  comparePassword,
+  saltRounds
 }

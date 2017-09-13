@@ -7,11 +7,11 @@ const bodyParser = require( 'body-parser' );
 const morgan = require( 'morgan' );
 
 const databaseBooks = require( './src/models/books.js' );
-const databaseAuth = require( './src/models/authentication.js' );
+const databaseMembers = require( './src/models/members.js' );
 
 const booksRoutes = require( './src/controllers/routes/books.js' );
-const authenticationRoutes = require( './src/controllers/routes/authentication.js' );
-
+const membersRoutes = require( './src/controllers/routes/members.js' );
+                        
 app.use(session({
   key: process.env.KEY,
   secret: process.env.SECRET,
@@ -24,11 +24,13 @@ app.set( 'view engine','pug' );
 app.set( 'views',__dirname + '/src/views' );
 app.use( express.static('public') )
 
-app.use(bodyParser.urlencoded( { extended: true } ) )
+app.use( bodyParser.urlencoded( { extended: true } ) )
+app.use( bodyParser.json() )
 
-app.use('/', authenticationRoutes)
-// router.use('/signup', authenticationRoutes)
-// router.use('/books', booksRoutes)
+app.use('/', membersRoutes)
+app.use('/signup', membersRoutes)
+app.use('/login', membersRoutes)
+app.use('/books', booksRoutes)
 
 
 app.listen(PORT, function () {
