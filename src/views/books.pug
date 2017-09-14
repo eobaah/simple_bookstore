@@ -1,0 +1,14 @@
+extends layout
+
+block content 
+  header
+    nav
+      .username Username
+      a.i.fa.fa-sign-out(href="/logout") Logout
+    section.bookContainer
+      //- for book in books
+        //- a(href=`/details/${book.id}`)
+          //- img(src=book.image_url).bookCover
+        //- p=book.title
+
+  footer

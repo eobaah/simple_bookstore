@@ -11,7 +11,7 @@ const databaseMembers = require( './src/models/members.js' );
 
 const booksRoutes = require( './src/controllers/routes/books.js' );
 const membersRoutes = require( './src/controllers/routes/members.js' );
-                        
+
 app.use(session({
   key: process.env.KEY,
   secret: process.env.SECRET,
@@ -27,10 +27,10 @@ app.use( express.static('public') )
 app.use( bodyParser.urlencoded( { extended: true } ) )
 app.use( bodyParser.json() )
 
-app.use('/', membersRoutes)
-app.use('/signup', membersRoutes)
-app.use('/login', membersRoutes)
-app.use('/books', booksRoutes)
+app.use( '/', membersRoutes )
+app.use( '/signup', membersRoutes )
+app.use( '/login', membersRoutes )
+app.use( '/books', booksRoutes )
 
 
 app.listen(PORT, function () {

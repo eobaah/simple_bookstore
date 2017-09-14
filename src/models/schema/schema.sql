@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS book(
   price VARCHAR(255),
   images VARCHAR(255),
   publisher VARCHAR(255),
-  ISBN VARCHAR(255));
+  isbn VARCHAR(255));
 
 DROP TABLE IF EXISTS member;
 CREATE TABLE IF NOT EXISTS member(
@@ -35,3 +35,13 @@ CREATE TABLE IF NOT EXISTS member_role(
   admin VARCHAR(255) NOT NULL,
   clerk VARCHAR(255) NOT NULL,
   reader VARCHAR(255) NOT NULL);
+
+DROP TABLE IF EXISTS session;
+CREATE TABLE IF NOT EXISTS "session" (
+  "sid" varchar NOT NULL COLLATE "default",
+	"sess" json NOT NULL,
+	"expire" timestamp(6) NOT NULL
+)
+
+WITH (OIDS=FALSE);
+ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
