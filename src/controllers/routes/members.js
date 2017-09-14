@@ -1,5 +1,5 @@
 const authentication = require( '../../authentication/hashpassword.js' );
-const isLoggedIn = require( './routesMiddleware.js' );
+const isLoggedIn = require( '../routeMiddlewares/routeMiddlewares.js' );
 const member = require( '../../models/members.js' );
 const {renderError} = require('../utilities/utilities.js');
 const router = require('express').Router();
@@ -41,8 +41,7 @@ router.post('/signup', (request, response, next) => {
         first_name: member.first_name,
         last_name: member.last_name,
         email: member.email,
-        username: member.username,
-        password: member.password
+        username: member.username
       }
       request.session.user = request.user
       console.log( "request.session:", request )
@@ -59,45 +58,53 @@ router.get('/login', (request, response, next) => {
   response.render('login');
 });
 
-
 router.post('/login', (request, response, next) => {
-
+  console.log(request.body)
   const { email, password } = request.body;
-  console.log( "request.body:", request.body )
-
   member.findByEmail( email )
     .then( member => {
       if ( member.email.length < 1 ) {
-        console.log( "======>  member does not exist" )
         response.render( 'signup', {
           message: 'member does not exists!'
         })
       } else {
-        console.log( "password:", password )
-        console.log( "hashedPassword:", member.password )
         hashedPassword = member.password
-        if ( !authentication.comparePassword(password, hashedPassword) ) {
-          return 'the passwords do not match'
-        } else {
-          request.user = {
-            id: member.id,
-            first_name: member.first_name,
-            last_name: member.last_name,
-            email: member.email,
-            username: member.username,
-            password: member.password
-          }
-          request.session.user = request.user
-          return response.redirect('/books');
-        }
+        authentication.comparePassword(password, hashedPassword)
+          .then( match => {
+            if( !match ) {
+              return response.render( 'login', {
+                message: 'Oops! please check your credentials and login again!'
+              })
+            } else {
+              request.user = {
+                id: member.id,
+                first_name: member.first_name,
+                last_name: member.last_name,
+                email: member.email,
+                username: member.username,
+                password: member.password
+              }
+              request.session.user = request.user
+              return response.redirect('/books');
+            }
+          })
       }
     })
-    .catch( error => {
-      console.log( "Damn it failed: ", error );
-      response.render( 'login', {
-        message: 'Check your credentials!'
-      })
-    });
+      .catch( error => {
+        console.log( "Damn it failed: ", error );
+        response.render( 'login', {
+          message: 'Check your credentials!'
+        })
+      });
 })
+
+router.get('/logout', (request, response, next) => {
+  console.log("fetch is working")
+  console.log(request.session)
+  console.log(request.user)
+  request.session = null
+  response.redirect('/login');
+});
+
 
 module.exports = router;

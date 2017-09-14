@@ -1,10 +1,11 @@
 const databaseBooks = require( '../../models/books.js' );
 const {renderError} = require('../utilities/utilities.js')
 const router = require('express').Router()
+const isLoggedIn = require( '../routeMiddlewares/routeMiddlewares.js' );
 
 
-router.get('/', (request, response) => {
-  response.send('This is the page you want')
+router.get('/', isLoggedIn, (request, response, next) => {
+  response.render('books')
 })
 
 

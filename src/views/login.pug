@@ -2,15 +2,13 @@ extends layout
 
 block content
   .loginContainer
-    h1 Jacky's and Gene's Simple Bookstore
+    h1 Login to Jacky's and Gene's Simple Bookstore
     .formBackground
-      form.loginForm( action="/" method="POST")
+      form.loginForm( action="/login" method="POST")
         .usernameSection
           i.fa.fa-user-circle-o(aria-hidden="true")
-          input(type="text" name="username" placeholder="Enter username") 
-          br
+          input(type="text" name="email" placeholder="Email") 
         .passwordSection
           i.fa.fa-key(aria-hidden="true")
           input(type="password" name="password") 
-          br
         input.login-btn(type='submit', value='Submit')
