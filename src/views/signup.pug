@@ -7,10 +7,10 @@ block content
       form.signUpForm( action="/signup" method="POST")
         .firstNameSection
           label.signupLabel First Name:
-          input.signupInput(type="text" name="first-name" placeholder="First Name") 
+          input.signupInput(type="text" name="first_name" placeholder="First Name") 
         .lastNameSection
           label.signupLabel Last Name:
-          input.signupInput(type="text" name="last-name" placeholder="Last Name") 
+          input.signupInput(type="text" name="last_name" placeholder="Last Name") 
         .emailSection
           label.signupLabel Email:
           input.signupInput(type="text" name="email" placeholder="Email") 
@@ -22,5 +22,5 @@ block content
           input.signupInput(type="password" name="password") 
         .passwordConfirmSection
           label.signupLabel Confirm Password:
-          input.signupInput(type="password" name="confirm-password") 
+          input.signupInput(type="password" name="confirm_password") 
         input.login-btn(type='submit', value='Submit')
