@@ -9,10 +9,9 @@ const createMember = ( first_name, last_name, email, username, password ) => {
     [ first_name, last_name, email, username, password ] )
 }
 
-  // find: ( email, password ) => {
-  //   return db.oneOrNone( 'SELECT * FROM member WHERE email=$1', [ email] )
-  //     .then( member => comparePassword( password, member) )
-  // },
+const findByEmail = ( email ) => {
+  return db.oneOrNone( 'SELECT * FROM member WHERE email=$1', [ email ] )
+}
 
   // findById: id => db.one( 'SELECT * FROM member WHERE id=$1', [ id ] ),
   // createOne: (
@@ -42,4 +41,4 @@ const createMember = ( first_name, last_name, email, username, password ) => {
   // }
 
 
-module.exports = {createMember}
+module.exports = {createMember,findByEmail}
