@@ -21,15 +21,15 @@ block content
                 .modal-inner-image
                   img(src=book.images).innerModalBookCover
                 .modal-book-details
-                  p=book.title
-                  p=book.author
-                  p=book.publisher
-                  p=book.isbn
-                  p=book.price
+                  .book-title #{book.title}
+                  .book-author #{book.author}
+                  .book-publisher #{book.publisher}
+                  .book-isbn #{book.isbn}
+                  .book-price #{book.price}
               .modal-summary
-                p Summary:
-                p=book.summary
+                .summary-title Summary:
+                .book-summary #{book.summary}
               .modal-footer
-                i.fa.fa-pencil-square-o
-                i.fa.fa-times.cancel-modal-btn
+                a(href=`books/edit/${book.id}`)
+                  i.fa.fa-pencil-square-o
   footer

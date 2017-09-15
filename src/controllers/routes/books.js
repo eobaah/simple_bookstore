@@ -13,5 +13,25 @@ router.get('/', isLoggedIn, (request, response, next) => {
     })
 })
 
+router.get('/edit/:id', isLoggedIn, (request, response, next) => {
+  const id = request.params.id
+  const username = request.user.username
+  book.getBook( id )
+    .then( book => {
+      book
+      response.render( 'edit', { book, username } )
+    })
+})
+
+router.delete('/delete/:id', isLoggedIn, (request, response, next) => {
+  const id = request.params.id
+  const username = request.user.username
+  book.deleteBook( id )
+    .then( book => {
+      book
+      response.redirect( '/books')
+    })
+})
+
 
 module.exports = router;

@@ -116,7 +116,7 @@
 /* Modal: */
 
 .modal-overlay {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.8);
   display: flex;
   height: 100%;
   left: 0;
@@ -139,12 +139,17 @@
   margin: auto;
   padding: 20px;
   position: absolute;
-  top: 0%;
+  top: 5%;
   visibility: hidden;
   width: 60%;
   z-index: 3;
-  height: auto;
+  height: 80vh;
   overflow-y: scroll;
+}
+
+i.fa.fa-times.close-modal-btn, i.fa.fa-pencil-square-o {
+  font-size: 1.5em;
+  cursor: pointer;
 }
 
 .modal-header {
@@ -154,6 +159,7 @@
 
 .modal-picture, .modal-footer {
   display: flex;
+  margin: 0,2%, 2%, 2%;
 }
 
 .modal-book-details, .modal-summary {
@@ -161,8 +167,37 @@
   flex-direction: column;
 }
 
+.modal-book-details > div {
+  margin: 1% 0;
+}
+
+.book-title {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.modal-summary {
+  margin: 5% 0 0 0;  
+}
+
+.book-summary {
+  margin: 3% 0 0 0;
+  height: 37vh;
+  overflow-y: auto;
+}
+
+.modal-footer {
+  justify-content: flex-end;
+  margin: 1% 2% 0 0;
+}
+
+.modal-book-details {
+  margin: 0 0 0 2%;
+}
+
 .innerModalBookCover {
-  height: 175px;
+  height: 235px;
+  margin-right: 10px;
 }
 
 nav {
