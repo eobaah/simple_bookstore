@@ -59,7 +59,6 @@ router.get('/login', (request, response, next) => {
 });
 
 router.post('/login', (request, response, next) => {
-  console.log(request.body)
   const { email, password } = request.body;
   member.findByEmail( email )
     .then( member => {

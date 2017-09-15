@@ -1,7 +1,7 @@
 const db = require('./db')
 
 const getAllBooks = () => {
-  return db.any(`SELECT * FROM bookstore ORDER BY title ASC`,[])
+  return db.any(`SELECT * FROM book ORDER BY title ASC`,[])
 }
 
 const createBook = ( title, author, summary, price, images, publisher, isbn ) => {
@@ -32,7 +32,8 @@ const searchBooks = input => {
 }
 
 const deleteBook = id => {
-  return db.none(`DELETE FROM book WHERE id=$1`,[ id ] )
+  return db.none(`DELETE FROM book WHERE id=$1
+    RETURNING *`,[ id ] )
 }
 
 const editBook = ( id, book ) => {
