@@ -177,11 +177,11 @@ i.fa.fa-times.close-modal-btn, i.fa.fa-pencil-square-o {
 }
 
 .modal-summary {
-  margin: 5% 0 0 0;  
+  margin: 11% 0 0 0;
 }
 
 .book-summary {
-  margin: 3% 0 0 0;
+  margin: 5% 0 0 0;
   height: 37vh;
   overflow-y: auto;
 }
