@@ -23,6 +23,17 @@ router.get('/edit/:id', isLoggedIn, (request, response, next) => {
     })
 })
 
+router.put('/edit/:id', isLoggedIn, (request, response, next) => {
+  const id = request.params.id
+  const book = request.body
+  const username = request.user.username
+  book.updateBook( id, book )
+    .then( book => {
+      book
+      response.redirect( '/' )
+    })
+})
+
 router.delete('/delete/:id', isLoggedIn, (request, response, next) => {
   const id = request.params.id
   const username = request.user.username
