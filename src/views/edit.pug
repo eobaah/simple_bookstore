@@ -1,0 +1,31 @@
+extends layout
+
+block content 
+  .editContainer
+    h1 Edit: #{book.title}
+    .signupFormBackground
+      form.signUpForm
+        .titleNameSection
+          label.signupLabel Title:
+          input.signupInput(type="text" name="title" value=`${book.title}`) 
+        .authorNameSection
+          label.signupLabel Author:
+          input.signupInput(type="text" name="author" value=`${book.author}`) 
+        .summarySection
+          label.signupLabel Summmary:
+          input.signupInput(type="textarea" name="summary" value=`${book.summary}`) 
+        .priceSection
+          label.signupLabel Price:
+          input.signupInput(type="text" name="price" value=`${book.price}`) 
+        .imagesSection
+          label.signupLabel Image:
+          input.signupInput(type="text" name="images" value=`${book.images}`) 
+        .publisherSection
+          label.signupLabel Publisher:
+          input.signupInput(type="text" name="publisher" value=`${book.publisher}`) 
+        .isbnSection
+          label.signupLabel ISBN:
+          input.signupInput(type="text" name="isbn" value=`${book.isbn}`) 
+        .editFooter
+          input.save-btn(type='submit', value='Submit')
+          a.i.fa.fa-trash Delete

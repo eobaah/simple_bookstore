@@ -2,13 +2,34 @@ extends layout
 
 block content 
   header
+    .modal-overlay
     nav
-      .username Username
+      .username #{username}
       a.i.fa.fa-sign-out(href="/logout") Logout
-    section.bookContainer
-      //- for book in books
-        //- a(href=`/details/${book.id}`)
-          //- img(src=book.image_url).bookCover
-        //- p=book.title
-
+    section.bookOuterContainer  
+      .bookInnerContainer
+        for book in books
+          .bookWrapper
+            a.open-modal-btn
+              img(src=book.images).bookCover
+              p=book.title
+              p=book.price
+            .modal-container
+              .modal-header
+                i.fa.fa-times.close-modal-btn
+              .modal-picture
+                .modal-inner-image
+                  img(src=book.images).innerModalBookCover
+                .modal-book-details
+                  .book-title #{book.title}
+                  .book-author #{book.author}
+                  .book-publisher #{book.publisher}
+                  .book-isbn #{book.isbn}
+                  .book-price #{book.price}
+              .modal-summary
+                .summary-title Summary:
+                .book-summary #{book.summary}
+              .modal-footer
+                a(href=`books/edit/${book.id}`)
+                  i.fa.fa-pencil-square-o
   footer

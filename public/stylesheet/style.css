@@ -112,12 +112,105 @@
 
 /* Books page styling */
 
+
+/* Modal: */
+
+.modal-overlay {
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  padding: 100px 0 0 0;
+  position: fixed;
+  right: 0;
+  width: 100%;
+  visibility: hidden;
+  z-index: 1;
+
+}
+
+.modal-container {
+  background-color: rgba(106, 69, 69, 1);
+  border: 1px solid rgba(110, 107, 107, 1);
+  display: flex;
+  flex-direction: column;
+  left: 22%;
+  margin: auto;
+  padding: 20px;
+  position: absolute;
+  top: 5%;
+  visibility: hidden;
+  width: 60%;
+  z-index: 3;
+  height: 80vh;
+  overflow-y: scroll;
+}
+
+i.fa.fa-times.close-modal-btn, i.fa.fa-pencil-square-o {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-picture, .modal-footer {
+  display: flex;
+  margin: 0,2%, 2%, 2%;
+}
+
+.modal-book-details, .modal-summary {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-book-details > div {
+  margin: 1% 0;
+}
+
+.book-title {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.modal-summary {
+  margin: 5% 0 0 0;  
+}
+
+.book-summary {
+  margin: 3% 0 0 0;
+  height: 37vh;
+  overflow-y: auto;
+}
+
+.modal-footer {
+  justify-content: flex-end;
+  margin: 1% 2% 0 0;
+}
+
+.modal-book-details {
+  margin: 0 0 0 2%;
+}
+
+.innerModalBookCover {
+  height: 235px;
+  margin-right: 10px;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: rgb(107, 139, 212);
   border-bottom-style: solid;
   border-color: rgb(255, 255, 255);
+}
+
+a {
+  text-decoration: none;
 }
 
 nav a, nav .username {
@@ -126,7 +219,7 @@ nav a, nav .username {
   text-decoration: none;
 }
 
-.bookContainer {
+.bookOuterContainer {
   align-items: center;
   background: url("../images/books1.jpg") no-repeat;
   background-size: cover;
@@ -136,6 +229,36 @@ nav a, nav .username {
   justify-content: center;
   position: absolute;
   width: 100%;
+}
+
+.bookInnerContainer {
+  color: rgb(255, 255, 255);
+  display: flex;
+  overflow-x: auto;
+  height: auto;
+  text-decoration: none;
+  width: 90%;
+}
+
+
+.bookInnerContainer a p{
+  color: rgb(255, 255, 255);
+  text-align: center;
+  text-decoration: none;
+}
+
+.bookWrapper {
+  margin: 0 3%;
+}
+
+.bookCover {
+  width: 250px;
+}
+
+
+
+.show-modal {
+  visibility: visible;
 }
 
 
